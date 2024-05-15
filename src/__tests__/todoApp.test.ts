@@ -2,7 +2,7 @@
 // --------------------------------- todo-lista --------------------------------------------------- //
 
 import { Todo } from "../models/Todo";
-import { addTodo, toggleTodo } from "../todoApp";
+import { addTodo, removeTodo, toggleTodo } from "../todoApp";
 
 // Todolistan ska innehålla:
 // 1. Kunna lägga till todos i listan
@@ -60,12 +60,19 @@ describe("ToDo app", () => {
 
 // -------------------------------- TEST 2 ----------------------------------------//
 
-    test("It should remove todo", ()=> {
+    test("It should remove todo", () => {
 
-        // Assign
+        // Assign - vi behöver en lista för att kunna ta bort saker ur den.
+        const todo = new Todo("Att ta bort");
+        const todos: Todo[] = [todo];
+       
 
-        // Act
+
+        // Act - vad ska funktionen heta? Vad behöver den funktionen veta? - vad som ska tas bort.
+        removeTodo(todo.id, todos);
+
 
         // Assert
+        expect(todos).toHaveLength(0);
     });
 });
