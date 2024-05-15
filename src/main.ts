@@ -18,7 +18,6 @@ export const add = (x: number, y: number): number => {
 
 
 
-
 /*
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'

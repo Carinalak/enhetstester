@@ -17,7 +17,6 @@ npm i
 npm run dev
 
 ### Jest - 
-npm i -D jest
 
-När vi kör typescript måste vi också installera:
-npm i -D @types/jest
+npm i -D jest @types/jest ts-jest
+

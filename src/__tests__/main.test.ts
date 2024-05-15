@@ -9,9 +9,10 @@ describe("Main functions", () => {
 
 
         // Act
-        let sum = add(x + y);
+        let sum = add(x, y);
 
         // Assert
         expect(sum).toBe(13);
     });
 });
+
