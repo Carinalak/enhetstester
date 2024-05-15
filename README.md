@@ -20,3 +20,6 @@ npm run dev
 
 npm i -D jest @types/jest ts-jest
 
+
+Om du skriver detta kör jest testerna först, sen kommer det upp en meny i slutet:
+npx jest --watchAll

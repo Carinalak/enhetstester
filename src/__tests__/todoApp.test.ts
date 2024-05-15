@@ -2,7 +2,7 @@
 // --------------------------------- todo-lista --------------------------------------------------- //
 
 import { Todo } from "../models/Todo";
-import { addTodo } from "../todoApp";
+import { addTodo, toggleTodo } from "../todoApp";
 
 // Todolistan ska innehålla:
 // 1. Kunna lägga till todos i listan
@@ -31,11 +31,41 @@ describe("ToDo app", () => {
         expect(todos[0].id).toBeGreaterThan(0);
     });
 
+// -------------------------------- TEST 2 ----------------------------------------//
+
     test("It should toggle", ()=> {
 
+        // Assign - Vi vill ändra dess egenskap till true eller false
+        // Jag behöver ett todo-objekt. När jag skapar den kommer done att vara false.
+
+        const todo: Todo = new Todo("Testing");
+
+        // Act - jag vill anropa en funktion som heter toggleTodo och skicka in ett todoobjekt.
+        // Den här funktionen komemr att ändra vårt todoobjekt
+
+        toggleTodo(todo);
+
+        // Assert - vi kan förvänta oss att todo.done är true.
+
+        expect(todo.done).toBeTruthy();
+
+         // Act - vi vill kunna toggla tillbaka till false, så vi inte fastnar i true.
+
+        toggleTodo(todo);
+
+        // Assert - vi kan förvänta oss att todo.done är false.
+
+        expect(todo.done).toBeFalsy();
     });
 
-    test("It should be removed from list", ()=> {
+// -------------------------------- TEST 2 ----------------------------------------//
 
+    test("It should remove todo", ()=> {
+
+        // Assign
+
+        // Act
+
+        // Assert
     });
 });
