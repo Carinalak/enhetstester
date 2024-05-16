@@ -5,8 +5,18 @@ export const add = (x: number, y: number): number => {
   return x + y;
 };
 
+// ------------------------ SEND MESSAGE ---------------------------- //
 
+/*
+export const sendMessage = (theMessage) {
+  return theMessage;
+  }
+*/
+export function sendMessage(message: any) {
+  return message;
+}
 
+// ------------------------ MULTIPLY ---------------------------- //
 
 
 

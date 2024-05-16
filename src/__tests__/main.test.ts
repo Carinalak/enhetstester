@@ -1,4 +1,7 @@
-import { add } from "../main";
+import { add, sendMessage } from "../main";
+//import { sendMessage } from "../main";
+
+
 
 describe("Main functions", () => {
     
@@ -16,3 +19,18 @@ describe("Main functions", () => {
     });
 });
 
+// ------------------------ SEND MESSAGE ---------------------------- //
+
+describe("sendMessage", () => {
+    
+    test("Should be what goes in", () => {
+        // Assign
+        const message = "Hello world";
+
+        // Act
+        const result = sendMessage(message);
+
+        // Assert
+        expect(result).toBe(message);
+    });
+});
