@@ -18,13 +18,19 @@ export function sendMessage(message: any) {
 
 // ------------------------ MULTIPLY ---------------------------- //
 
+export const multiply = (x: number, y: number): number => {
+  return x * y;
+}
+// ------------------------ MINUS ---------------------------- //
 
+export const subtract = (x: number, y: number): number => {
+  return x - y;
+}
 
-
-
-
-
-
+// ------------------------ LÄNGD ---------------------------- //
+export const stringLength = (str: any): any => {
+  return str.length;
+}
 
 
 
