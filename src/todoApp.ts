@@ -1,6 +1,7 @@
 
 // ------------------------------ Todo-lista Omgjord------------------------------------- //
 
+import { createHtml } from "./htmlFunctions";
 import { Todo } from "./models/Todo";
 
 const todos: Todo[] = [];
@@ -25,21 +26,9 @@ export const removeTodo = (id: number, theList: Todo[]) => {
     theList.splice(i, 1);
     createHtml(theList);
 }
-// Följande funktion loopar igenom listan [] däruppe.
-const createHtml = (theList: Todo[]) => {
-    // Rensa en ul på innehåll. Om todoLsit finns då - skriv ut en tom.
-    const todoList = document.getElementById("todoList");
-    if (todoList) todoList.innerHTML = "";
 
-    // Loopa theList
-    for(let i = 0; i < theList.length; i++) {
-        //skapa li-taggar
-        const listItem = document.createElement("li");
-        listItem.innerHTML = theList[i].text;
+// Här fanns funktionen createHtml, den flyttades till htmlFunctions.ts, pga spioner.
 
-        todoList?.appendChild(listItem);
-    }
-};
 createHtml(todos);
 
 

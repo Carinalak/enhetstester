@@ -44,3 +44,13 @@ npm i -D jest-environment-jsdom
 
 För att konfigurera det, så att den kan köras, gå till package.json och skriv i Jest-konfigurationen:
 "testEnvironment": "jsdom"
+
+
+### Spioner
+
+![spioner](img/spioner.png)
+![spioner](img/spionkod.png)
+
+htmlFunctions.ts skapas för att vi behöver den till spioner
+Vi flyttar hela createHrml-functionen från todoApp.ts till htmlFunctions.ts.
+Men man måste exportera den och importera den i todoApp.js, så att den går att anropa, och använda.

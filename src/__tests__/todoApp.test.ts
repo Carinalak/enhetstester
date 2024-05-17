@@ -3,6 +3,7 @@
 
 import { Todo } from "../models/Todo";
 import { addTodo, removeTodo, toggleTodo } from "../todoApp";
+import * as htmlFunctions from "./../htmlFunctions";
 
 // Todolistan ska innehålla:
 // 1. Kunna lägga till todos i listan
@@ -11,7 +12,13 @@ import { addTodo, removeTodo, toggleTodo } from "../todoApp";
 // -------------------------------- TEST 1 GAMLA OCH NYA, UPPDATERADE ----------------------------------------//
 
 
+
 describe("ToDo app", () => {
+    let mockedCreateHtml: jest.SpyInstance<void>;
+
+    beforeEach(() => {
+        mockedCreateHtml = jest.spyOn(htmlFunctions, "createHtml");
+    });
     test("It should add a todo the list", () => {
         // Assign - vad behöver jag till min todolista - jo, en text!
 
@@ -19,6 +26,7 @@ describe("ToDo app", () => {
         const todos: Todo[] = [];
         // Vi måste lägga till följande för att det ska finnas något i test-DOMEN (test-webbläsaren):
         document.body.innerHTML = `<ul id="todoList"></ul>`;
+        
 
         // Act - jag behöver anropa en funktion! Vad ska min funktion heta?
         // Behöver funktionen addTodo ta emot något för att göra sin grej? Ja, texten som vi vill lägga till i todon.
@@ -34,8 +42,9 @@ describe("ToDo app", () => {
         expect(todos[0].done).toBeFalsy(); // den ska vara false, underfined eller null.
         expect(todos[0].id).toBeGreaterThan(0);
 
-        const liTags =  document.getElementsByTagName("li");
-        expect(liTags).toHaveLength(1);
+        // const liTags =  document.getElementsByTagName("li");
+        // expect(liTags).toHaveLength(1);
+        expect(mockedCreateHtml).toHaveBeenCalled();
     });
 // ----------------------- Testet går in i else-satsen ---------------------- //
     test("It should not add a todo the list", () => {
@@ -52,8 +61,10 @@ describe("ToDo app", () => {
         // Jag har inget att kontrollera så de tre sista raderna från föregående exempel tas bort.
 
         expect(todos).toHaveLength(0);
-        const liTags =  document.getElementsByTagName("li");
-        expect(liTags).toHaveLength(0);
+        // Följande två rader behövs inte när jag använder en spion:
+        // const liTags =  document.getElementsByTagName("li");
+        // expect(liTags).toHaveLength(0);
+        expect(mockedCreateHtml).toHaveBeenCalled();
     });
 
 // -------------------------------- TEST 2 ----------------------------------------//
@@ -81,6 +92,7 @@ describe("ToDo app", () => {
         // Assert - vi kan förvänta oss att todo.done är false.
 
         expect(todo.done).toBeFalsy();
+        expect(mockedCreateHtml).toHaveBeenCalled();
     });
 
 // -------------------------------- TEST 3 ----------------------------------------//
@@ -99,8 +111,10 @@ describe("ToDo app", () => {
 
         // Assert
         expect(todos).toHaveLength(0);
-        const liTags =  document.getElementsByTagName("li");
-        expect(liTags).toHaveLength(0);
+
+        // const liTags =  document.getElementsByTagName("li");
+        //expect(liTags).toHaveLength(0);
+        expect(mockedCreateHtml).toHaveBeenCalled();
         
     });
 });
