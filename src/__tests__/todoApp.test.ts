@@ -15,7 +15,7 @@ import * as htmlFunctions from "./../htmlFunctions";
 
 describe("ToDo app", () => {
     let mockedCreateHtml: jest.SpyInstance<void>;
-
+    // Before each görs på alla tester
     beforeEach(() => {
         mockedCreateHtml = jest.spyOn(htmlFunctions, "createHtml");
     });
